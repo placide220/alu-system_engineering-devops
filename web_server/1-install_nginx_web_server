@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 #Installing Nginx on Ubuntu
 #Nginx is listening on port 80
 #The GET request should return a page containing "Holberton School"
@@ -13,3 +14,22 @@ sudo touch /var/www/html/index.html
 #Display your message then
 sudo echo "Holberton School" > /var/www/html/index.html
 sudo service nginx restart
+=======
+# commands to install nginx on web server
+
+apt-get update
+apt-get install -y nginx
+
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Holberton School" > /etc/nginx/html/index.html
+printf %s "server {
+     listen      80 default_server;
+     listen      [::]:80 default_server;
+     root        /etc/nginx/html;
+     index       index.html index.htm;
+}
+" > /etc/nginx/sites-available/default
+
+service nginx restart
+>>>>>>> 0e4450058f680a9713fe162556d027ba5ff93971
